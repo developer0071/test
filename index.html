@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Listening Practice – Part 1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      color: #111;
+    }
+    body {
+      position: relative;
+      padding-top: 120px;
+      background: #f5f5f5;
+    }
+    .bg-blur {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('d803c829-d5f1-4002-87f7-348979de61b6.png');
+      background-size: cover;
+      background-position: center;
+      z-index: -2;
+    }
+    .bg-blur::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.5);
+      z-index: 1;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px 20px;
+      background: rgba(255, 255, 255, 0.85);
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ccc;
+    }
+    .header h2 {
+      margin: 0;
+      font-size: 20px;
+      color: #222;
+    }
+    #music {
+      padding-top: 10px;
+      width: 240px;
+    }
+    .section {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+    .question.glass {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      margin-top: 20px;
+    }
+    .instruction {
+      background: rgba(255, 255, 255, 0.6);
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+    .sentence {
+      margin-top: 15px;
+      font-size: 18px;
+    }
+    input[type="text"] {
+      padding: 8px;
+      margin: 0 6px;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+      font-size: 16px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #000;
+      width: 200px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+    .nav-row {
+      margin-top: 30px;
+      text-align: center;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #555;
+      background: rgba(0, 0, 0, 0.05);
+      color: #222;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin: 10px;
+    }
+    button:hover {
+      background: rgba(0, 0, 0, 0.15);
+    }
+    .result {
+      margin-top: 25px;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      color: #000;
+    }
+    .feedback {
+      margin-left: 10px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    @media (max-width: 768px) {
+      input[type="text"] {
+        width: 100%;
+        margin: 10px 0;
+      }
+      .sentence {
+        font-size: 16px;
+      }
+      audio {
+        width: 100%;
+      }
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-blur"></div>
+  <div class="header glass">
+    <h2>Part 1 – Listening Practice</h2>
+    <audio id="music" controls>
+      <source src="part1.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <div class="section">
+    <div class="instruction glass">
+      <strong>Section A</strong><br>
+      Listen and answer <strong>questions 1–6</strong>.<br>
+      Write <strong>NO MORE THAN TWO WORDS</strong> for each answer.
+    </div>
+
+    <div class="question glass">
+      <h3>PRIME RECRUITMENT</h3>
+      <div class="sentence">1. Email: <input type="text" id="q1" placeholder="Answer" />@worldnet.com</div>
+      <div class="sentence">2. Nationality: <input type="text" id="q2" placeholder="Answer" /></div>
+      <div class="sentence">3. Job of professional reference: <input type="text" id="q3" placeholder="Answer" /></div>
+      <div class="sentence">4. Job of personal reference: <input type="text" id="q4" placeholder="Answer" /></div>
+      <div class="sentence">5. Current certificate: <input type="text" id="q5" placeholder="Answer" /></div>
+      <div class="sentence">6. Certificate of competence in: <input type="text" id="q6" placeholder="Answer" /></div>
+    </div>
+
+<div class="instruction glass">
+  <strong>Section B</strong><br>
+  Listen and answer <strong>questions 7–10</strong>.<br>
+  Write <strong>ONE WORD ONLY</strong> for each answer.
+</div>
+
+<div class="question glass">
+  <h3>PRIME RECRUITMENT CHILDCARE VACANCIES</h3>
+  <div style="overflow-x: auto; width: 100%;">
+    <table>
+      <tr>
+        <th>Location</th>
+        <th>Name</th>
+        <th>Children</th>
+        <th>Special requirements</th>
+      </tr>
+      <tr>
+        <td>London</td>
+        <td>Benton</td>
+        <td>girl and boy</td>
+        <td>be keen on <input type="text" id="q7" placeholder="Answer" /></td>
+      </tr>
+      <tr>
+        <td>near Oxford</td>
+        <td>Granger</td>
+        <td><input type="text" id="q8" placeholder="Answer" /> boys</td>
+        <td>be animal-lover</td>
+      </tr>
+      <tr>
+        <td><input type="text" id="q9" placeholder="Answer" /></td>
+        <td>Campbell</td>
+        <td>four girls</td>
+        <td>be willing to <input type="text" id="q10" placeholder="Answer" /> when camping</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="nav-row">
+    <button onclick="checkAnswers()">✅ Submit</button>
+    <a href="part2.html"><button>➡️ Next Part</button></a>
+  </div>
+  <div class="result" id="resultBox"></div>
+</div>
+  </div>
+
+<script>
+  const correctAnswers = {
+    q1: "edwinari",
+    q2: "New Zealander",
+    q3: "play centre",
+    q4: "professor",
+    q5: "first aid",
+    q6: "sailing",
+    q7: "sport",
+    q8: "twin",
+    q9: "Scotland",
+    q10: "cook"
+  };
+
+  function showFeedback(key, userInput, correctAnswer) {
+    const inputEl = document.getElementById(key);
+
+    // Remove existing feedback if any
+    const oldFeedback = document.getElementById(`${key}-feedback`);
+    if (oldFeedback) oldFeedback.remove();
+
+    const feedback = document.createElement("span");
+    feedback.className = "feedback";
+    feedback.id = `${key}-feedback`;
+
+    if (userInput.trim().toLowerCase() === correctAnswer.toLowerCase()) {
+      feedback.textContent = "✅ Correct";
+      feedback.style.color = "green";
+      return { feedback, isCorrect: true };
+    } else {
+      feedback.textContent = `❌ Wrong — Correct: ${correctAnswer}`;
+      feedback.style.color = "red";
+      return { feedback, isCorrect: false };
+    }
+  }
+
+  function checkAnswers() {
+    let correct = 0;
+    let total = Object.keys(correctAnswers).length;
+
+    for (let key in correctAnswers) {
+      const inputEl = document.getElementById(key);
+      const userInput = inputEl.value.trim();
+      const correctAnswer = correctAnswers[key];
+
+      localStorage.setItem("p1_" + key, userInput);
+
+      const { feedback, isCorrect } = showFeedback(key, userInput, correctAnswer);
+      inputEl.parentNode.appendChild(feedback);
+      if (isCorrect) correct++;
+    }
+
+    const incorrect = total - correct;
+    const resultText = `✅ Correct: ${correct} 😊<br>❌ Wrong: ${incorrect} 😢`;
+    document.getElementById("resultBox").innerHTML = resultText;
+    localStorage.setItem("p1_result", resultText);
+  }
+
+  window.onload = () => {
+    for (let key in correctAnswers) {
+      const saved = localStorage.getItem("p1_" + key);
+      if (saved) {
+        const inputEl = document.getElementById(key);
+        inputEl.value = saved;
+
+        const correctAnswer = correctAnswers[key];
+        const { feedback } = showFeedback(key, saved, correctAnswer);
+        inputEl.parentNode.appendChild(feedback);
+      }
+    }
+
+    const savedResult = localStorage.getItem("p1_result");
+    if (savedResult) {
+      document.getElementById("resultBox").innerHTML = savedResult;
+    }
+  };
+</script>
+</body>
+</html>
