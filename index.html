@@ -243,10 +243,10 @@
     q10: "cook"
   };
 
+  let submitButtonClicked = false;
+
   function showFeedback(key, userInput, correctAnswer) {
     const inputEl = document.getElementById(key);
-
-    // Remove existing feedback if any
     const oldFeedback = document.getElementById(`${key}-feedback`);
     if (oldFeedback) oldFeedback.remove();
 
@@ -266,6 +266,27 @@
   }
 
   function checkAnswers() {
+    const submittedBefore = localStorage.getItem("p1_submitted");
+    if (submittedBefore) {
+      let attempts = localStorage.getItem("p1_cheat") || 0;
+      attempts = parseInt(attempts) + 1;
+      localStorage.setItem("p1_cheat", attempts);
+
+      let shame = document.getElementById("cheat-warning");
+      if (!shame) {
+        shame = document.createElement("div");
+        shame.id = "cheat-warning";
+        shame.style.color = "red";
+        shame.style.fontSize = "18px";
+        shame.style.fontWeight = "bold";
+        shame.style.textAlign = "center";
+        shame.style.marginTop = "15px";
+        document.getElementById("resultBox").after(shame);
+      }
+      shame.innerHTML = `🛑 Stop cheating! You've tried ${attempts} times after submission! 😡`;
+      return;
+    }
+
     let correct = 0;
     let total = Object.keys(correctAnswers).length;
 
@@ -283,8 +304,12 @@
 
     const incorrect = total - correct;
     const resultText = `✅ Correct: ${correct} 😊<br>❌ Wrong: ${incorrect} 😢`;
+
     document.getElementById("resultBox").innerHTML = resultText;
+
+    // Save permanently
     localStorage.setItem("p1_result", resultText);
+    localStorage.setItem("p1_submitted", "true");
   }
 
   window.onload = () => {
@@ -303,6 +328,19 @@
     const savedResult = localStorage.getItem("p1_result");
     if (savedResult) {
       document.getElementById("resultBox").innerHTML = savedResult;
+    }
+
+    const cheatCount = localStorage.getItem("p1_cheat");
+    if (cheatCount && parseInt(cheatCount) > 0) {
+      const shame = document.createElement("div");
+      shame.id = "cheat-warning";
+      shame.style.color = "red";
+      shame.style.fontSize = "18px";
+      shame.style.fontWeight = "bold";
+      shame.style.textAlign = "center";
+      shame.style.marginTop = "15px";
+      shame.innerHTML = `🛑 You already submitted and tried to cheat ${cheatCount} time(s)!`;
+      document.getElementById("resultBox").after(shame);
     }
   };
 </script>
