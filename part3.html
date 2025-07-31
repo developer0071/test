@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Listening Practice – Part 1 (Section 3)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      color: #111;
+    }
+    body {
+      position: relative;
+      padding-top: 120px;
+      background: #f5f5f5;
+    }
+    .bg-blur {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('d803c829-d5f1-4002-87f7-348979de61b6.png');
+      background-size: cover;
+      background-position: center;
+      z-index: -2;
+    }
+    .bg-blur::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.5);
+      z-index: 1;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px 20px;
+      background: rgba(255, 255, 255, 0.85);
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ccc;
+    }
+    .header h2 {
+      margin: 0;
+      font-size: 20px;
+      color: #222;
+    }
+    #music {
+      padding-top: 10px;
+      width: 240px;
+    }
+    .section {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+    .instruction {
+      background: rgba(255, 255, 255, 0.6);
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ccc;
+      text-align: left;
+      vertical-align: top;
+      font-size: 16px;
+    }
+    td input[type="radio"] {
+      margin-right: 5px;
+    }
+
+    .nav-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #555;
+      background: rgba(0, 0, 0, 0.05);
+      color: #222;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: rgba(0, 0, 0, 0.15);
+    }
+
+    .result {
+      margin-top: 25px;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      color: #000;
+    }
+    .feedback {
+      margin-left: 10px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    #downloadPdfBtn {
+      display: none;
+      font-size: 22px;
+      margin-top: 15px;
+      text-align: center;
+      cursor: pointer;
+      color: #222;
+      user-select: none;
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      #music {
+        width: 100%;
+        margin-top: 10px;
+      }
+      th, td {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-blur"></div>
+  <div class="header">
+    <h2>Listening Practice</h2>
+<audio id="audio" src="Listening Practice 8.mp3" preload="auto" controls></audio>
+<div class="button-group">
+  <button onclick="playClip(794)">▶️ Play Section 1 (13:14)</button>
+</div>
+    <h2 style="color: rgb(170, 3, 3);">EDU</h2>
+  </div>
+
+  <div class="section glass">
+  <h2>Section 3: Questions 21–30</h2>
+  <p><strong>Choose the best option A, B or C.</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Question</th>
+        <th>A</th>
+        <th>B</th>
+        <th>C</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>21. Ms. Okello is covering Dr. Humphries’ classes because he is…</td>
+        <td><input type="radio" name="q21" value="A" /> enjoying holiday with his wife</td>
+        <td><input type="radio" name="q21" value="B" /> visiting a family member in the hospital</td>
+        <td><input type="radio" name="q21" value="C" /> away doing research</td>
+      </tr>
+      <tr>
+        <td>22. Ms. Okello’s area of expertise is…</td>
+        <td><input type="radio" name="q22" value="A" /> intercultural communication</td>
+        <td><input type="radio" name="q22" value="B" /> business communication</td>
+        <td><input type="radio" name="q22" value="C" /> mass communication</td>
+      </tr>
+      <tr>
+        <td>23. Which of the following best describes Arshad?</td>
+        <td><input type="radio" name="q23" value="A" /> naturally talented but under motivated</td>
+        <td><input type="radio" name="q23" value="B" /> enjoying his freedom but keen to please his parents</td>
+        <td><input type="radio" name="q23" value="C" /> disorganised but has lots of good ideas</td>
+      </tr>
+      <tr>
+        <td>24. Which of the following best describes Galiya?</td>
+        <td><input type="radio" name="q24" value="A" /> has natural authority but is afraid to use it</td>
+        <td><input type="radio" name="q24" value="B" /> focused on her future but afraid of public speaking</td>
+        <td><input type="radio" name="q24" value="C" /> organized but lacking in confidence</td>
+      </tr>
+      <tr>
+        <td>25. Overall, what is the students’ problem?</td>
+        <td><input type="radio" name="q25" value="A" /> Galiya and Arshad are not sure how to begin and the deadline’s in two weeks</td>
+        <td><input type="radio" name="q25" value="B" /> Galiya’s trying to do the entire project herself without Arshad’s help</td>
+        <td><input type="radio" name="q25" value="C" /> Galiya and Arshad have teamwork trouble and unclear instructions</td>
+      </tr>
+      <tr>
+        <td>26. What suggestion does Ms. Okello give to Galiya?</td>
+        <td><input type="radio" name="q26" value="A" /> Request a deadline extension</td>
+        <td><input type="radio" name="q26" value="B" /> Change partners</td>
+        <td><input type="radio" name="q26" value="C" /> Practice more</td>
+      </tr>
+      <tr>
+        <td>27. What does Galiya ask Arshad to do in order to improve their presentation?</td>
+        <td><input type="radio" name="q27" value="A" /> Come up with better ideas</td>
+        <td><input type="radio" name="q27" value="B" /> Use his computer skills</td>
+        <td><input type="radio" name="q27" value="C" /> Start taking the project seriously</td>
+      </tr>
+      <tr>
+        <td>28. What does Arshad ask Galiya to do in order to improve their presentation?</td>
+        <td><input type="radio" name="q28" value="A" /> Treat him with respect</td>
+        <td><input type="radio" name="q28" value="B" /> Practice her speaking part</td>
+        <td><input type="radio" name="q28" value="C" /> Give him less work</td>
+      </tr>
+      <tr>
+        <td>29. What does Arshad want to be in the future?</td>
+        <td><input type="radio" name="q29" value="A" /> Entrepreneur</td>
+        <td><input type="radio" name="q29" value="B" /> Financial analyst</td>
+        <td><input type="radio" name="q29" value="C" /> Not sure</td>
+      </tr>
+      <tr>
+        <td>30. How should Leah inform Ms. Okello about her project topic?</td>
+        <td><input type="radio" name="q30" value="A" /> Office visit</td>
+        <td><input type="radio" name="q30" value="B" /> Phone call</td>
+        <td><input type="radio" name="q30" value="C" /> E-mail message</td>
+      </tr>
+    </tbody>
+  </table>
+
+<div id="resetStatsBtn" style="display: none;">
+  <button onclick="resetStats()">🧹 Reset Section 3 Stats</button>
+</div>
+
+    <div class="nav-row">
+      <a href="part2.html"><button>⬅️ Previous Part</button></a>
+      <button onclick="checkAnswers()">✅ Submit</button>
+      <a href="part4.html"><button>➡️ Next Part</button></a>
+      <div id="downloadPdfBtn" onclick="downloadPDF()">📄 Download PDF</div>
+    </div>
+
+    <div class="result" id="resultBox"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+    let stopTimer = null;
+
+  function playClip(startTime, duration) {
+    const audio = document.getElementById("audio");
+
+    // Stop previous timer
+    if (stopTimer) clearTimeout(stopTimer);
+
+    // Jump to start and play
+    audio.currentTime = startTime;
+    audio.play();
+
+    // Stop after duration (in seconds)
+    stopTimer = setTimeout(() => {
+      audio.pause();
+    }, duration * 1000);
+  }
+const correctAnswers = {
+  q21: "C",
+  q22: "A",
+  q23: "A",
+  q24: "B",
+  q25: "C",
+  q26: "C",
+  q27: "B",
+  q28: "A",
+  q29: "A",
+  q30: "B"
+};
+
+function showFeedback(key, userInput, correctAnswer) {
+  const inputEl = document.getElementById(key);
+  const oldFeedback = document.getElementById(`${key}-feedback`);
+  if (oldFeedback) oldFeedback.remove();
+
+  const feedback = document.createElement("span");
+  feedback.className = "feedback";
+  feedback.id = `${key}-feedback`;
+
+  if (userInput.trim().toLowerCase() === correctAnswer.toLowerCase()) {
+    feedback.textContent = "✅ Correct";
+    feedback.style.color = "green";
+    return { feedback, isCorrect: true };
+  } else {
+    feedback.textContent = `❌ Wrong — Correct: ${correctAnswer}`;
+    feedback.style.color = "red";
+    return { feedback, isCorrect: false };
+  }
+}
+
+function checkAnswers() {
+  const submittedBefore = localStorage.getItem("p3_submitted");
+  if (submittedBefore) {
+    let attempts = +localStorage.getItem("p3_cheat") || 0;
+    localStorage.setItem("p3_cheat", ++attempts);
+    let shame = document.getElementById("cheat-warning");
+    if (!shame) {
+      shame = document.createElement("div");
+      shame.id = "cheat-warning";
+      shame.style.color = "red";
+      shame.style.fontSize = "18px";
+      shame.style.fontWeight = "bold";
+      shame.style.textAlign = "center";
+      shame.style.marginTop = "15px";
+      document.getElementById("resultBox").after(shame);
+    }
+    shame.innerHTML = `🛑 Stop cheating! You've tried ${attempts} times after submission! 😡`;
+    return;
+  }
+
+  let correct = 0;
+  const total = Object.keys(correctAnswers).length;
+
+  for (let key in correctAnswers) {
+    let userInput = "";
+
+    const radios = document.getElementsByName(key);
+    for (const radio of radios) {
+      if (radio.checked) {
+        userInput = radio.value;
+        break;
+      }
+    }
+
+    const correctAnswer = correctAnswers[key];
+    localStorage.setItem("p3_" + key, userInput);
+
+    if (userInput.toLowerCase() === correctAnswer.toLowerCase()) {
+      correct++;
+    }
+  }
+
+  const incorrect = total - correct;
+  const resultText = `✅ Correct: ${correct} 😊<br>❌ Wrong: ${incorrect} 😢`;
+  document.getElementById("resultBox").innerHTML = resultText;
+  localStorage.setItem("p3_result", resultText);
+  localStorage.setItem("p3_submitted", "true");
+
+  document.getElementById("downloadPdfBtn").style.display = "block";
+}
+
+window.onload = () => {
+  for (let key in correctAnswers) {
+    const saved = localStorage.getItem("p3_" + key);
+    if (saved) {
+      const radios = document.getElementsByName(key);
+      for (const radio of radios) {
+        if (radio.value.toLowerCase() === saved.toLowerCase()) {
+          radio.checked = true;
+          break;
+        }
+      }
+    }
+  }
+
+  const savedResult = localStorage.getItem("p3_result");
+  if (savedResult) document.getElementById("resultBox").innerHTML = savedResult;
+
+  if (localStorage.getItem("p3_submitted") === "true")
+    document.getElementById("downloadPdfBtn").style.display = "block";
+
+  const cheatCount = +localStorage.getItem("p3_cheat") || 0;
+  if (cheatCount > 0) {
+    const shame = document.createElement("div");
+    shame.id = "cheat-warning";
+    shame.style.color = "red";
+    shame.style.fontSize = "18px";
+    shame.style.fontWeight = "bold";
+    shame.style.textAlign = "center";
+    shame.style.marginTop = "15px";
+    shame.innerHTML = `🛑 You already submitted and tried to cheat ${cheatCount} time(s)!`;
+    document.getElementById("resultBox").after(shame);
+  }
+};
+
+function downloadPDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  doc.setFontSize(12);
+  doc.text("Listening Practice –(Section 3)", 10, 10);
+
+  let y = 20;
+  Object.entries(correctAnswers).forEach(([key, answer], i) => {
+    const input = localStorage.getItem("p3_" + key) || "(empty)";
+    doc.text(`${i + 21}. Your Answer: ${input} | Correct Answer: ${answer}`, 10, y);
+    y += 10;
+  });
+
+  const result = localStorage.getItem("p3_result") || "";
+  doc.text("Result:", 10, y + 10);
+  doc.text(result.replace(/<br>/g, " "), 10, y + 20);
+  doc.save("Section3_Answers.pdf");
+}
+function resetStats() {
+  const password = prompt("Enter reset password:");
+
+  if (password !== "listen123") {
+    alert("❌ Incorrect password. Stats were not cleared.");
+    return;
+  }
+
+  const keysToRemove = [];
+
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key && key.startsWith("p3_")) {
+      keysToRemove.push(key);
+    }
+  }
+
+  if (keysToRemove.length === 0) {
+    alert("⚠️ No Section 3 stats found to clear.");
+    return;
+  }
+
+  keysToRemove.forEach(key => localStorage.removeItem(key));
+
+  alert(`✅ Section 3 stats cleared! (${keysToRemove.length} items)`);
+  location.reload();
+}
+
+// ✅ This must be outside the function
+document.addEventListener("keydown", function (e) {
+  if (e.ctrlKey && e.key.toLowerCase() === "i") {
+    e.preventDefault(); // Optional: prevent browser default action for Ctrl+I (italic in some browsers)
+    const btn = document.getElementById("resetStatsBtn");
+    if (btn) {
+      btn.style.display = "block";
+      btn.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+});
+
+</script>
+</body>
+</html>
