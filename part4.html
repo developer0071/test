@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Listening Practice – Part 1 (Section 3)</title>
+  <title>Listening Practice – Part 1 (Section 4)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="Icon" type="img/jpeg" href="4a707f53-e034-4bd0-b77f-37654f3b0543.png" class="icon1">
   <style>
@@ -49,7 +49,6 @@
       border: 1px solid rgba(0, 0, 0, 0.1);
       border-radius: 10px;
     }
-
     .header {
       position: fixed;
       top: 0;
@@ -59,7 +58,6 @@
       background: rgba(255, 255, 255, 0.85);
       z-index: 1000;
       display: flex;
-      flex-direction: row;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid #ccc;
@@ -70,20 +68,18 @@
       color: #222;
     }
     #music {
+      padding-top: 10px;
       width: 240px;
     }
-
     .section {
-      max-width: 900px;
-      margin: 140px auto 60px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
     }
-
     .instruction {
       background: rgba(255, 255, 255, 0.6);
       padding: 15px 20px;
+      margin-bottom: 20px;
       border-radius: 8px;
       border: 1px solid #ddd;
     }
@@ -140,6 +136,13 @@
       font-size: 16px;
       font-weight: bold;
     }
+    ul ,li{
+      margin-top: 20px;
+    }
+    input{
+      margin:0px 5px;
+      padding:3px 5px;
+    }
 
     #downloadPdfBtn {
       display: none;
@@ -167,19 +170,20 @@
   </style>
 </head>
 <body>
-  <div class="bg-blur"></div>
-  <div class="header">
-    <h2>Listening Practice</h2>
-<audio id="audio" src="Listening Practice 8.mp3" preload="auto" controls></audio>
-<div class="button-group">
-  <button onclick="playClip(1155)">▶️ Play Section 4 (19:15)</button>
-</div>
-    <h2 style="color: rgb(170, 3, 3);">EDU</h2>
+<div class="bg-blur"></div>
+<div class="header">
+  <h2>Listening Practice</h2>
+  <audio id="audio" src="Listening Practice 8.mp3" preload="auto" controls></audio>
+  <div class="button-group">
+    <button onclick="playClip(1155)">▶️ Play Section 4 </button>
   </div>
+  <h2 style="color: rgb(170, 3, 3);">EDU</h2>
+</div>
 
 <div class="section glass">
   <h2>Section 4: Questions 31–40</h2>
-  <p><strong>Choose the best option A, B or C.</strong></p>
+  <p><strong>Complete the notes below</strong></p>
+  <p>Write <strong>ONE WORD ONLY</strong> for each answer</p>
 
   <div class="instruction" id="space-exploitation">
     <h3 id="space-heading">Notes: Space Exploitation</h3>
@@ -206,11 +210,9 @@
       <li><strong>Space junk:</strong> So serious that the possibility of space tourism is in <input type="text" id="q40" placeholder="40">.</li>
     </ul>
   </div>
-</div>
-
-
-<div id="resetStatsBtn" style="display: none;">
-  <button onclick="resetStats()">🧹 Reset Section 3 Stats</button>
+  <div id="resetStatsBtn" style="display: none;">
+    <button onclick="resetStats()">🧹 Reset Section 3 Stats</button>
+  </div>
 </div>
 
     <div class="nav-row">
@@ -220,203 +222,8 @@
     </div>
 
     <div class="result" id="resultBox"></div>
-  </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script>
-    let stopTimer = null;
-
-  function playClip(startTime, duration) {
-    const audio = document.getElementById("audio");
-
-    // Stop previous timer
-    if (stopTimer) clearTimeout(stopTimer);
-
-    // Jump to start and play
-    audio.currentTime = startTime;
-    audio.play();
-
-    // Stop after duration (in seconds)
-    stopTimer = setTimeout(() => {
-      audio.pause();
-    }, duration * 1000);
-  }
-  const correctAnswers = {
-    q31: "excitement",
-    q32: "benefits",
-    q33: "territory",
-    q34: "civilization",
-    q35: "ignore",
-    q36: "base",
-    q37: "mapped",
-    q38: "legal",
-    q39: "health",
-    q40: "doubt"
-  };
-
-function showFeedback(key, userInput, correctAnswer) {
-  const inputEl = document.getElementById(key);
-  const oldFeedback = document.getElementById(`${key}-feedback`);
-  if (oldFeedback) oldFeedback.remove();
-
-  const feedback = document.createElement("span");
-  feedback.className = "feedback";
-  feedback.id = `${key}-feedback`;
-
-  if (userInput.trim().toLowerCase() === correctAnswer.toLowerCase()) {
-    feedback.textContent = "✅ Correct";
-    feedback.style.color = "green";
-    return { feedback, isCorrect: true };
-  } else {
-    feedback.textContent = `❌ Wrong — Correct: ${correctAnswer}`;
-    feedback.style.color = "red";
-    return { feedback, isCorrect: false };
-  }
-}
-
-function checkAnswers() {
-  const submittedBefore = localStorage.getItem("p4_submitted");
-  if (submittedBefore) {
-    let attempts = +localStorage.getItem("p4_cheat") || 0;
-    localStorage.setItem("p4_cheat", ++attempts);
-    let shame = document.getElementById("cheat-warning");
-    if (!shame) {
-      shame = document.createElement("div");
-      shame.id = "cheat-warning";
-      shame.style.color = "red";
-      shame.style.fontSize = "18px";
-      shame.style.fontWeight = "bold";
-      shame.style.textAlign = "center";
-      shame.style.marginTop = "15px";
-      document.getElementById("resultBox").after(shame);
-    }
-    shame.innerHTML = `🛑 Stop cheating! You've tried ${attempts} times after submission! 😡`;
-    return;
-  }
-
-  let correct = 0;
-  const total = Object.keys(correctAnswers).length;
-
-  for (let key in correctAnswers) {
-    let userInput = "";
-
-    const radios = document.getElementsByName(key);
-    for (const radio of radios) {
-      if (radio.checked) {
-        userInput = radio.value;
-        break;
-      }
-    }
-
-    const correctAnswer = correctAnswers[key];
-    localStorage.setItem("p4_" + key, userInput);
-
-    if (userInput.toLowerCase() === correctAnswer.toLowerCase()) {
-      correct++;
-    }
-  }
-
-  const incorrect = total - correct;
-  const resultText = `✅ Correct: ${correct} 😊<br>❌ Wrong: ${incorrect} 😢`;
-  document.getElementById("resultBox").innerHTML = resultText;
-  localStorage.setItem("p4_result", resultText);
-  localStorage.setItem("p4_submitted", "true");
-
-  document.getElementById("downloadPdfBtn").style.display = "block";
-}
-
-window.onload = () => {
-  for (let key in correctAnswers) {
-    const saved = localStorage.getItem("p4_" + key);
-    if (saved) {
-      const radios = document.getElementsByName(key);
-      for (const radio of radios) {
-        if (radio.value.toLowerCase() === saved.toLowerCase()) {
-          radio.checked = true;
-          break;
-        }
-      }
-    }
-  }
-
-  const savedResult = localStorage.getItem("p4_result");
-  if (savedResult) document.getElementById("resultBox").innerHTML = savedResult;
-
-  if (localStorage.getItem("p4_submitted") === "true")
-    document.getElementById("downloadPdfBtn").style.display = "block";
-
-  const cheatCount = +localStorage.getItem("p4_cheat") || 0;
-  if (cheatCount > 0) {
-    const shame = document.createElement("div");
-    shame.id = "cheat-warning";
-    shame.style.color = "red";
-    shame.style.fontSize = "18px";
-    shame.style.fontWeight = "bold";
-    shame.style.textAlign = "center";
-    shame.style.marginTop = "15px";
-    shame.innerHTML = `🛑 You already submitted and tried to cheat ${cheatCount} time(s)!`;
-    document.getElementById("resultBox").after(shame);
-  }
-};
-
-function downloadPDF() {
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
-  doc.setFontSize(12);
-  doc.text("Listening Practice –(Section 4)", 10, 10);
-
-  let y = 20;
-  Object.entries(correctAnswers).forEach(([key, answer], i) => {
-    const input = localStorage.getItem("p4_" + key) || "(empty)";
-    doc.text(`${i + 21}. Your Answer: ${input} | Correct Answer: ${answer}`, 10, y);
-    y += 10;
-  });
-
-  const result = localStorage.getItem("p4_result") || "";
-  doc.text("Result:", 10, y + 10);
-  doc.text(result.replace(/<br>/g, " "), 10, y + 20);
-  doc.save("Section4_Answers.pdf");
-}
-function resetStats() {
-  const password = prompt("Enter reset password:");
-
-  if (password !== "listen123") {
-    alert("❌ Incorrect password. Stats were not cleared.");
-    return;
-  }
-
-  const keysToRemove = [];
-
-  for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i);
-    if (key && key.startsWith("p4_")) {
-      keysToRemove.push(key);
-    }
-  }
-
-  if (keysToRemove.length === 0) {
-    alert("⚠️ No Section 3 stats found to clear.");
-    return;
-  }
-
-  keysToRemove.forEach(key => localStorage.removeItem(key));
-
-  alert(`✅ Section 3 stats cleared! (${keysToRemove.length} items)`);
-  location.reload();
-}
-
-// ✅ This must be outside the function
-document.addEventListener("keydown", function (e) {
-  if (e.ctrlKey && e.key.toLowerCase() === "i") {
-    e.preventDefault(); // Optional: prevent browser default action for Ctrl+I (italic in some browsers)
-    const btn = document.getElementById("resetStatsBtn");
-    if (btn) {
-      btn.style.display = "block";
-      btn.scrollIntoView({ behavior: "smooth" });
-    }
-  }
-});
-
-</script>
+  <script src="script4.js"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="Icon" type="img/jpeg" href="4a707f53-e034-4bd0-b77f-37654f3b0543.png" class="icon1">
   <style>
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; letter-spacing: 1px; }
     html, body {
       margin: 0;
       padding: 0;
@@ -14,6 +14,7 @@
       font-family: Arial, sans-serif;
       color: #111;
     }
+    
     body {
       position: relative;
       padding-top: 120px;
@@ -138,7 +139,7 @@
     <h2>Listening Practice</h2>
 <audio id="audio" src="Listening Practice 8.mp3" preload="auto" controls></audio>
 <div class="button-group">
-  <button onclick="playClip(0, 585)">▶️ Play Section 1 (0:00 - 9:45)</button>
+  <button onclick="playClip(0, 585)">▶️ Play Section 1</button>
 </div>
   <h2 style="color: rgb(170, 3, 3);">EDU</h2>
   </div>
@@ -150,69 +151,76 @@
     </div>
 
     <div class="question glass">
+      <p style="text-align: center;"><strong>Example:</strong>Big Bear Lake Camping</p>
       <h3>Timetable</h3>
-      <table>
+      <table id="shortTable">
         <tr>
-          <th>Day 1</th>
-          <td>6 a.m. Leave from Meeting area</td>
+          <td>Day 1<br>6 a.m. Leave from<br>Meeting area</td>
+
+          <td>
+            7 a.m. - 2 p.m. Arrive.<br>
+            Set up camp.<br>
+            Lunch and <input type="text" id="q1" placeholder="Answer for 1" style="width:120px;"> schedule.
+          </td>
+
+          <td>2 p.m. - 5 p.m. Grass Land hiking trails</td>
+
+          <td>5 p.m. - 9 p.m. Dinner.<br>Share stories. Sing songs. Lights out</td>
         </tr>
+
         <tr>
-          <td>7 a.m. – 2 p.m.</td>
-          <td>Arrive. Set up camp. Lunch and <strong>1.</strong> <input type="text" id="q1" />schedule</td>
-        </tr>
-        <tr>
-          <td>2 p.m. – 5 p.m.</td>
-          <td>Grass Land hiking trails</td>
-        </tr>
-        <tr>
-          <td>5 p.m. – 9 p.m.</td>
-          <td>Dinner. Share stories. Sing songs. Lights out</td>
-        </tr>
-        <tr>
-          <th>Day 2</th>
-          <td><strong>2.</strong> <input type="text" id="q2" />. Breakfast</td>
-        </tr>
-        <tr>
-          <td>7:30 a.m. – noon</td>
-          <td>White Water River floating</td>
-        </tr>
-        <tr>
-          <td>Noon – 1:30 p.m.</td>
-          <td>Lunch</td>
-        </tr>
-        <tr>
-          <td>1:30 p.m. – 3:00 p.m.</td>
-          <td><strong>3.</strong> <input type="text" id="q3" /> camp. Head back to town</td>
+          <td>Day 2</td>
+
+          <td>
+            <input type="text" id="q2" placeholder="Answer for 2" style="width:90px;"> a.m. Breakfast<br>
+            7:30 a.m. - noon White Water River floating
+          </td>
+
+          <td>
+            Noon - 1:30 p.m. Lunch
+          </td>
+
+          <td>
+            1:30 p.m. - 3:00 p.m.
+            <input type="text" id="q3" placeholder="Answer for 3" style="width:120px;">
+            camp. Head back to town
+          </td>
         </tr>
       </table>
 
-      <h3>Camping Equipment (per person)</h3>
-      <ul>
-        <li>1 tent</li>
-        <li>sleeping bag</li>
-        <li>pillow</li>
-        <li>1 pair of hiking boots</li>
-        <li>1 pair of <strong>4.</strong> <input type="text" id="q4" /></li>
-        <li>Plenty of clothes:jeans,t-shirts,socks.... torch +<strong>5.</strong> <input type="text" id="q5" /></li>
-        <li>Drinking water: 6 bottles</li>
-        <li>Emergency: <strong>6.</strong> <input type="text" id="q6" />:</li>
-        <li>1 pack of matches</li>
-        <li>1 sharp knife</li>
-      </ul>
+      <p style="text-align: center; font-weight: bold;">Camping Equipment (per person)</p>
+      <table>
+        <tr>
+          <td>1 tent + sleeping bag and pillow</td>
+          <td>1 pair of hiking boots + 1 pair of <strong>4. <input type="text" id="q4" style="width: 80px; display: inline;" placeholder="Answer"></strong></td>
+          <td>Plenty of clothes: jeans, t-shirts, socks...</td>
+          <td>Torch + <strong>5. <input type="text" id="q5" style="width: 80px; display: inline;" placeholder="Answer"></strong></td>
+        </tr>
+        <tr>
+          <td>Drinking water: 6 bottles</td>
+          <td>Emergency <strong>6. <input type="text" id="q6" style="width: 80px; display: inline;" placeholder="Answer"></strong>: 1 pack of whole grain bars</td>
+          <td>1 pack of matches</td>
+          <td>1 sharp knife</td>
+        </tr>
+      </table>
 
-      <h3>Fees (per person)</h3>
-      <ul>
-        <li>Camp site fee: $20</li>
-        <li>Food: $50.includes</li>
-        <li><strong>7.</strong> <input type="text" id="q7" />and drinks</li>
-        <li>Hiking trails:</li>
-        <li><strong>8.$</strong> <input type="text" id="q8" /></li>
-        <li>River floating: $20</li>
-        <li>Total: $95</li>
-        <li>Deposit: $50, due <strong>9.</strong> <input type="text" id="q9" />before the trip</li>
-        <li>Remainder: due before leaving</li>
-        <li>Refund policy: <strong>10.</strong> <input type="text" id="q10" /></li>
-      </ul>
+      <p style="text-align: center; font-weight: bold;">Fees (per person)</p>
+      <table>
+        <tr>
+          <td>Camp site fee: $20</td>
+          <td>Food: $50. Includes <strong>7. <input type="text" id="q7" style="width: 80px; display: inline;" placeholder="Answer"></strong> and drinks</td>
+          <td>Hiking trails: <strong>8. $<input type="text" id="q8" style="width: 60px; display: inline;" placeholder="0-99"></strong></td>
+          <td>River floating: $20</td>
+        </tr>
+        <tr>
+          <td>Total: $95</td>
+          <td>Deposit: $50, due <strong>9. <input type="text" id="q9" style="width: 90px; display: inline;" placeholder="Answer"></strong> before the trip</td>
+          <td>Remainder: due before leaving</td>
+          <td>Refund policy: <strong>10. <input type="text" id="q10" style="width: 120px; display: inline;" placeholder="Answer"></strong></td>
+        </tr>
+      </table>
+
+    </div>
 <div id="resetStatsBtn" style="display: none;">
   <button onclick="resetStats()">🧹 Reset Section 1 Stats</button>
 </div>
@@ -228,9 +236,7 @@
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script>
-const _0x2652ba=_0x25a5;(function(_0x37591d,_0xe2d752){const _0x17ec30=_0x25a5,_0x526c95=_0x37591d();while(!![]){try{const _0x368142=-parseInt(_0x17ec30(0x1bc))/0x1+parseInt(_0x17ec30(0x19f))/0x2+-parseInt(_0x17ec30(0x1e0))/0x3*(-parseInt(_0x17ec30(0x1bf))/0x4)+parseInt(_0x17ec30(0x1aa))/0x5+parseInt(_0x17ec30(0x1b2))/0x6+-parseInt(_0x17ec30(0x1e2))/0x7*(-parseInt(_0x17ec30(0x1ed))/0x8)+-parseInt(_0x17ec30(0x1e1))/0x9;if(_0x368142===_0xe2d752)break;else _0x526c95['push'](_0x526c95['shift']());}catch(_0x13a255){_0x526c95['push'](_0x526c95['shift']());}}}(_0x3f4b,0xe328e));let stopTimer=null;function _0x25a5(_0x164382,_0x38edf1){const _0x3f4b0f=_0x3f4b();return _0x25a5=function(_0x25a5ea,_0x3dd9fa){_0x25a5ea=_0x25a5ea-0x19a;let _0x3df377=_0x3f4b0f[_0x25a5ea];return _0x3df377;},_0x25a5(_0x164382,_0x38edf1);}function playClip(_0x11c950,_0x37bb92){const _0xfc8a44=_0x25a5,_0x3138b8=document[_0xfc8a44(0x1b1)]('audio');if(stopTimer)clearTimeout(stopTimer);_0x3138b8[_0xfc8a44(0x1ec)]=_0x11c950,_0x3138b8[_0xfc8a44(0x1d5)](),stopTimer=setTimeout(()=>{const _0x29491f=_0xfc8a44;_0x3138b8[_0x29491f(0x1b5)]();},_0x37bb92*0x3e8);}const correctAnswers={'q1':_0x2652ba(0x1a2),'q2':'six','q3':'break\x20down','q4':_0x2652ba(0x1cc),'q5':'extra\x20batteries','q6':_0x2652ba(0x1b0),'q7':_0x2652ba(0x1b8),'q8':'5','q9':_0x2652ba(0x1ad),'q10':'no\x20refunds'};function showFeedback(_0x2bba6f,_0x5c8733,_0x39cb9c){const _0x3cfe42=_0x2652ba,_0x1b7e63=document['getElementById'](_0x2bba6f),_0x57075c=document[_0x3cfe42(0x1b1)](_0x2bba6f+_0x3cfe42(0x1cd));if(_0x57075c)_0x57075c['remove']();const _0x378524=document['createElement'](_0x3cfe42(0x19c));return _0x378524[_0x3cfe42(0x1f7)]=_0x3cfe42(0x19a),_0x378524['id']=_0x2bba6f+_0x3cfe42(0x1cd),_0x5c8733[_0x3cfe42(0x1c2)]()[_0x3cfe42(0x1bd)]()===_0x39cb9c[_0x3cfe42(0x1bd)]()?(_0x378524[_0x3cfe42(0x1d0)]=_0x3cfe42(0x19b),_0x378524[_0x3cfe42(0x1a0)][_0x3cfe42(0x1a3)]=_0x3cfe42(0x1ce),{'feedback':_0x378524,'isCorrect':!![]}):(_0x378524[_0x3cfe42(0x1d0)]=_0x3cfe42(0x1e9)+_0x39cb9c,_0x378524[_0x3cfe42(0x1a0)][_0x3cfe42(0x1a3)]='red',{'feedback':_0x378524,'isCorrect':![]});}function checkAnswers(){const _0x51b91e=_0x2652ba,_0x51df47=localStorage[_0x51b91e(0x1dd)](_0x51b91e(0x1d4));if(_0x51df47){let _0x4893d1=+localStorage[_0x51b91e(0x1dd)](_0x51b91e(0x1bb))||0x0;localStorage['setItem']('p1_cheat',++_0x4893d1);let _0x3aac55=document[_0x51b91e(0x1b1)]('cheat-warning');!_0x3aac55&&(_0x3aac55=document[_0x51b91e(0x1c4)](_0x51b91e(0x19d)),_0x3aac55['id']=_0x51b91e(0x1de),_0x3aac55[_0x51b91e(0x1a0)][_0x51b91e(0x1a3)]=_0x51b91e(0x19e),_0x3aac55[_0x51b91e(0x1a0)]['fontSize']=_0x51b91e(0x1c0),_0x3aac55[_0x51b91e(0x1a0)][_0x51b91e(0x1f0)]=_0x51b91e(0x1b7),_0x3aac55['style'][_0x51b91e(0x1c8)]='center',_0x3aac55[_0x51b91e(0x1a0)][_0x51b91e(0x1da)]=_0x51b91e(0x1cf),document[_0x51b91e(0x1b1)](_0x51b91e(0x1d1))['after'](_0x3aac55));_0x3aac55[_0x51b91e(0x1af)]='🛑\x20Stop\x20cheating!\x20You\x27ve\x20tried\x20'+_0x4893d1+'\x20times\x20after\x20submission!\x20😡';return;}let _0x4b49aa=0x0;const _0x1fab86=Object[_0x51b91e(0x1f5)](correctAnswers)[_0x51b91e(0x1f4)];for(let _0xdcf464 in correctAnswers){let _0x19e397='';const _0x419c86=document[_0x51b91e(0x1b1)](_0xdcf464);if(_0x419c86)_0x19e397=_0x419c86['value'][_0x51b91e(0x1c2)]();const _0x565cf9=correctAnswers[_0xdcf464];localStorage[_0x51b91e(0x1c1)](_0x51b91e(0x1a4)+_0xdcf464,_0x19e397);if(_0x419c86){const {feedback:_0x2812a0,isCorrect:_0x240338}=showFeedback(_0xdcf464,_0x19e397,_0x565cf9);_0x419c86[_0x51b91e(0x1e3)](_0x51b91e(0x1d7),_0x2812a0);if(_0x240338)_0x4b49aa++;}}const _0x15d527=_0x1fab86-_0x4b49aa,_0x534a1a=_0x51b91e(0x1a8)+_0x4b49aa+'\x20😊<br>❌\x20Wrong:\x20'+_0x15d527+'\x20😢';document[_0x51b91e(0x1b1)](_0x51b91e(0x1d1))[_0x51b91e(0x1af)]=_0x534a1a,localStorage[_0x51b91e(0x1c1)](_0x51b91e(0x1f3),_0x534a1a),localStorage[_0x51b91e(0x1c1)](_0x51b91e(0x1d4),'true'),document[_0x51b91e(0x1b1)](_0x51b91e(0x1d6))[_0x51b91e(0x1a0)]['display']=_0x51b91e(0x1e7);}window[_0x2652ba(0x1d2)]=()=>{const _0x11d96e=_0x2652ba;for(let _0x1e500c in correctAnswers){const _0x5bfcae=localStorage['getItem'](_0x11d96e(0x1a4)+_0x1e500c);if(_0x5bfcae){const _0x509282=document[_0x11d96e(0x1b1)](_0x1e500c);if(_0x509282){_0x509282[_0x11d96e(0x1ca)]=_0x5bfcae;const {feedback:_0x3cbf77}=showFeedback(_0x1e500c,_0x5bfcae,correctAnswers[_0x1e500c]);_0x509282[_0x11d96e(0x1e3)](_0x11d96e(0x1d7),_0x3cbf77);}}}const _0x4e0470=localStorage['getItem'](_0x11d96e(0x1f3));if(_0x4e0470)document[_0x11d96e(0x1b1)](_0x11d96e(0x1d1))[_0x11d96e(0x1af)]=_0x4e0470;if(localStorage[_0x11d96e(0x1dd)](_0x11d96e(0x1d4))==='true')document[_0x11d96e(0x1b1)](_0x11d96e(0x1d6))[_0x11d96e(0x1a0)][_0x11d96e(0x1a5)]=_0x11d96e(0x1e7);const _0x2ed465=+localStorage['getItem'](_0x11d96e(0x1bb))||0x0;if(_0x2ed465>0x0){const _0x4663b5=document[_0x11d96e(0x1c4)](_0x11d96e(0x19d));_0x4663b5['id']='cheat-warning',_0x4663b5[_0x11d96e(0x1a0)][_0x11d96e(0x1a3)]=_0x11d96e(0x19e),_0x4663b5[_0x11d96e(0x1a0)]['fontSize']='18px',_0x4663b5[_0x11d96e(0x1a0)][_0x11d96e(0x1f0)]=_0x11d96e(0x1b7),_0x4663b5[_0x11d96e(0x1a0)][_0x11d96e(0x1c8)]=_0x11d96e(0x1dc),_0x4663b5['style'][_0x11d96e(0x1da)]=_0x11d96e(0x1cf),_0x4663b5[_0x11d96e(0x1af)]=_0x11d96e(0x1a6)+_0x2ed465+'\x20time(s)!',document[_0x11d96e(0x1b1)](_0x11d96e(0x1d1))[_0x11d96e(0x1ea)](_0x4663b5);}};function downloadPDF(){const _0x10de81=_0x2652ba,{jsPDF:_0x4e87e8}=window['jspdf'],_0x22babc=new _0x4e87e8();_0x22babc[_0x10de81(0x1d9)](0xc),_0x22babc[_0x10de81(0x1db)](_0x10de81(0x1ba),0xa,0xa);let _0x2b0052=0x14;Object[_0x10de81(0x1c7)](correctAnswers)['forEach'](([_0x1fad6b,_0x1c40a7],_0x16c600)=>{const _0x16fcb1=_0x10de81,_0x5ba89d=localStorage[_0x16fcb1(0x1dd)](_0x16fcb1(0x1a4)+_0x1fad6b)||_0x16fcb1(0x1a9);_0x22babc[_0x16fcb1(0x1db)](_0x16c600+0x1+_0x16fcb1(0x1ae)+_0x5ba89d+_0x16fcb1(0x1ee)+_0x1c40a7,0xa,_0x2b0052),_0x2b0052+=0xa;});const _0x2e0470=localStorage[_0x10de81(0x1dd)]('p1_result')||'';_0x22babc['text'](_0x10de81(0x1ab),0xa,_0x2b0052+0xa),_0x22babc['text'](_0x2e0470['replace'](/<br>/g,'\x20'),0xa,_0x2b0052+0x14),_0x22babc[_0x10de81(0x1e8)](_0x10de81(0x1ef));}const masterPassword=_0x2652ba(0x1df);document[_0x2652ba(0x1be)](_0x2652ba(0x1e6),function(_0x5006ae){const _0x5c7668=_0x2652ba;if(_0x5006ae['ctrlKey']&&_0x5006ae['shiftKey']&&_0x5006ae['key']==='Z'){const _0x19a371=prompt('Enter\x20master\x20password\x20to\x20RESET\x20ALL:');_0x19a371===masterPassword?document['getElementById'](_0x5c7668(0x1b3))[_0x5c7668(0x1a0)][_0x5c7668(0x1a5)]='block':alert(_0x5c7668(0x1e5));}}),document[_0x2652ba(0x1b1)](_0x2652ba(0x1b3))[_0x2652ba(0x1be)](_0x2652ba(0x1f8),function(){const _0x328f97=_0x2652ba;confirm(_0x328f97(0x1c5))&&(Object[_0x328f97(0x1f5)](localStorage)[_0x328f97(0x1b6)](_0x356067=>_0x356067[_0x328f97(0x1a7)]('p1_'))['forEach'](_0x4698a2=>localStorage[_0x328f97(0x1a1)](_0x4698a2)),location[_0x328f97(0x1c3)]());});function resetStats(){const _0x218c78=_0x2652ba,_0x133402=prompt('Enter\x20reset\x20password:');if(_0x133402!==_0x218c78(0x1e4)){alert(_0x218c78(0x1c9));return;}const _0x5a9685=[];for(let _0x362146=0x0;_0x362146<localStorage['length'];_0x362146++){const _0x5cd054=localStorage[_0x218c78(0x1b4)](_0x362146);_0x5cd054&&_0x5cd054[_0x218c78(0x1a7)](_0x218c78(0x1a4))&&_0x5a9685[_0x218c78(0x1eb)](_0x5cd054);}if(_0x5a9685[_0x218c78(0x1f4)]===0x0){alert(_0x218c78(0x1d3));return;}_0x5a9685[_0x218c78(0x1f1)](_0x55e167=>localStorage[_0x218c78(0x1a1)](_0x55e167)),alert(_0x218c78(0x1f2)+_0x5a9685[_0x218c78(0x1f4)]+_0x218c78(0x1c6)),location[_0x218c78(0x1c3)]();}document[_0x2652ba(0x1be)](_0x2652ba(0x1e6),function(_0x1a9c35){const _0x58797b=_0x2652ba;if(_0x1a9c35[_0x58797b(0x1b9)]&&_0x1a9c35[_0x58797b(0x1b4)][_0x58797b(0x1bd)]()==='i'){_0x1a9c35[_0x58797b(0x1f6)]();const _0x33b5cb=document[_0x58797b(0x1b1)](_0x58797b(0x1ac));_0x33b5cb&&(_0x33b5cb['style'][_0x58797b(0x1a5)]=_0x58797b(0x1e7),_0x33b5cb[_0x58797b(0x1cb)]({'behavior':_0x58797b(0x1d8)}));}});function _0x3f4b(){const _0x5c9813=['pause','filter','bold','meals','ctrlKey','Listening\x20Practice\x20–\x20(Section\x201)','p1_cheat','1470375RSPnMv','toLowerCase','addEventListener','52yyKdmI','18px','setItem','trim','reload','createElement','⚠️\x20Are\x20you\x20sure?\x20This\x20will\x20erase\x20all\x20your\x20progress.','\x20items)','entries','textAlign','❌\x20Incorrect\x20password.\x20Stats\x20were\x20not\x20cleared.','value','scrollIntoView','old\x20shoes','-feedback','green','15px','textContent','resultBox','onload','⚠️\x20No\x20Section\x201\x20stats\x20found\x20to\x20clear.','p1_submitted','play','downloadPdfBtn','afterend','smooth','setFontSize','marginTop','text','center','getItem','cheat-warning','1234','260436riIHWq','13523112CaXAIu','1365070WsyOap','insertAdjacentElement','listen123','❌\x20Wrong\x20password.\x20Access\x20denied.','keydown','block','save','❌\x20Wrong\x20—\x20Correct:\x20','after','push','currentTime','24KsszGh','\x20|\x20Correct\x20Answer:\x20','Section1_Answers.pdf','fontWeight','forEach','✅\x20Section\x201\x20stats\x20cleared!\x20(','p1_result','length','keys','preventDefault','className','click','feedback','✅\x20Correct','span','div','red','1718808AMAjsn','style','removeItem','review','color','p1_','display','🛑\x20You\x20already\x20submitted\x20and\x20tried\x20to\x20cheat\x20','startsWith','✅\x20Correct:\x20','(empty)','5454880BEFNgw','Result:','resetStatsBtn','two\x20weeks','.\x20Your\x20Answer:\x20','innerHTML','food\x20supply','getElementById','1436538foRqyg','resetAllBtn','key'];_0x3f4b=function(){return _0x5c9813;};return _0x3f4b();}
-</script>
+  <script src="script.js"></script>
 </body>
 </html>
 
