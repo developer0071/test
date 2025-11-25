@@ -235,3 +235,55 @@ window.checkAnswers = checkAnswers;
 window.downloadPDF = downloadPDF;
 window.resetStats = resetStats;
 window.playClip = playClip;
+// ---------- Expose checkAnswers & downloadPDF & resetStats to global (HTML buttons rely on these) ----------
+window.checkAnswers = checkAnswers;
+window.downloadPDF = downloadPDF;
+window.resetStats = resetStats;
+window.playClip = playClip;
+
+document.addEventListener("contextmenu", e => e.preventDefault());
+document.addEventListener("keydown", e => {
+  // F12
+  if (e.key === "F12") {
+    e.preventDefault();
+  }
+
+  // Ctrl + Shift + I   (DevTools)
+  if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "i") {
+    e.preventDefault();
+  }
+
+  // Ctrl + Shift + J   (Console)
+  if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "j") {
+    e.preventDefault();
+  }
+
+  // Ctrl + U  (View Source)
+  if (e.ctrlKey && e.key.toLowerCase() === "u") {
+    e.preventDefault();
+  }
+
+  // Ctrl + S  (Save Page)
+  if (e.ctrlKey && e.key.toLowerCase() === "s") {
+    e.preventDefault();
+  }
+
+  // Ctrl + C / Ctrl + X / Ctrl + V (copy/paste)
+  if (e.ctrlKey && ["c", "x", "v"].includes(e.key.toLowerCase())) {
+    e.preventDefault();
+  }
+});
+document.addEventListener("selectstart", e => e.preventDefault());
+
+(function() {
+  const hackShield = document.createElement("div");
+  hackShield.style.position = "fixed";
+  hackShield.style.top = 0;
+  hackShield.style.left = 0;
+  hackShield.style.width = "100vw";
+  hackShield.style.height = "100vh";
+  hackShield.style.zIndex = 2147483647;
+  hackShield.style.pointerEvents = "none";
+  hackShield.style.opacity = 0;
+  document.body.appendChild(hackShield);
+})();
