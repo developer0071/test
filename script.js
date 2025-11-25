@@ -6,13 +6,13 @@ const acceptableAnswers = {
   q1: ["review"],
   q2: ["6", "six"],
   q3: ["break down"],
-  q4: ["old shoes", "old shoe", "oldshoes", "oldshoe"],
-  q5: ["extra batteries", "batteries", "extra battery", "battery"],
-  q6: ["food supply", "food supplies", "food", "supply"],
+  q4: ["old shoes"],
+  q5: ["extra batteries"],
+  q6: ["food supply"],
   q7: ["meals", "meal"],
   q8: ["5", "five", "fix"],
-  q9: ["2", "two", "2 weeks", "two weeks", "2weeks", "twoweeks"],
-  q10: ["no refunds", "no refund", "norefunds", "norefund"]
+  q9: ["2 weeks", "two weeks", "2weeks", "twoweeks"],
+  q10: ["no refunds"]
 };
 
 // ---------- Utility: normalize user input ----------
